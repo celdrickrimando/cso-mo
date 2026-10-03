@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Mo</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="header">
+    <img class="app-icon" src="icons/mo-256.png" alt="" width="40" height="40" />
+    <div class="header-text">
+      <h1>Mo</h1>
+      <p>MOA compliance review</p>
+    </div>
+    <button id="archiveToggleBtn" class="icon-btn" type="button" aria-label="Archive" aria-expanded="false" aria-controls="archivePanel" title="Archive of items you marked as correct or resolved">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5h18v3.5H3z"/><path d="M4.5 11v8.5h15V11"/><path d="M10 15h4"/></svg>
+    </button>
+  </header>
+
+  <section id="archivePanel" class="archive reveal" inert>
+    <div class="reveal-inner">
+      <h2 class="label">Archive — dismissed for this document</h2>
+      <div id="archiveList" class="archive-list scroll"></div>
+    </div>
+  </section>
+
+  <section id="docCard" class="doc-card" aria-live="polite">
+    <span id="docGlyph" class="doc-glyph" aria-hidden="true"></span>
+    <div class="doc-meta">
+      <div id="docTitle" class="doc-title">Looking for a document…</div>
+      <div id="docKind" class="doc-kind"></div>
+    </div>
+  </section>
+
+  <main>
+    <div class="field">
+      <h2 class="label" id="typeLabel">Document type</h2>
+      <div id="typeSeg" class="seg" role="radiogroup" aria-labelledby="typeLabel">
+        <span class="seg-thumb" aria-hidden="true"></span>
+        <button type="button" role="radio" aria-checked="false" data-value="internal">Internal</button>
+        <button type="button" role="radio" aria-checked="false" data-value="sponsorship">Sponsorship</button>
+        <button type="button" role="radio" aria-checked="false" data-value="partnership">Partnership</button>
+      </div>
+      <p id="docNote" class="footnote"></p>
+    </div>
+
+    <div id="codingSection" class="reveal" inert>
+      <div class="reveal-inner">
+        <div class="field">
+          <h2 class="label" id="codingLabel">Coded or non-coded?</h2>
+          <div id="codingSeg" class="seg" role="radiogroup" aria-labelledby="codingLabel">
+            <span class="seg-thumb" aria-hidden="true"></span>
+            <button type="button" role="radio" aria-checked="false" data-value="coded">Coded</button>
+            <button type="button" role="radio" aria-checked="false" data-value="non_coded">Non-coded</button>
+          </div>
+          <p class="footnote">A precaution only — Mo still verifies the GTC→Dispute Resolution section itself and will flag it if this doesn't match.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="csoPartySection" class="reveal" inert>
+      <div class="reveal-inner">
+        <div class="field">
+          <h2 class="label" id="csoPartyLabel">Internal MOA type</h2>
+          <div id="csoPartyList" class="list" role="radiogroup" aria-labelledby="csoPartyLabel">
+            <button type="button" class="list-row" role="radio" aria-checked="false" data-value="cso-org">CSO MAIN - CSO ORG<svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg></button>
+            <button type="button" class="list-row" role="radio" aria-checked="false" data-value="org-org">CSO ORG - CSO ORG<svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg></button>
+            <button type="button" class="list-row" role="radio" aria-checked="false" data-value="cso-noncso">CSO ORG/MAIN - NON CSO ORG<svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg></button>
+          </div>
+          <p id="csoPartyHint" class="footnote"></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="csoInvitingSection" class="reveal" inert>
+      <div class="reveal-inner">
+        <div class="field">
+          <h2 class="label" id="csoInvitingLabel">Is CSO ORG/MAIN the one inviting?</h2>
+          <div id="csoInvitingSeg" class="seg" role="radiogroup" aria-labelledby="csoInvitingLabel">
+            <span class="seg-thumb" aria-hidden="true"></span>
+            <button type="button" role="radio" aria-checked="false" data-value="yes">Yes, CSO is inviting</button>
+            <button type="button" role="radio" aria-checked="false" data-value="no">No, CSO was invited</button>
+          </div>
+          <p id="csoInvitingHint" class="footnote"></p>
+        </div>
+      </div>
+    </div>
+
+    <button id="checkBtn" class="primary" type="button" disabled>Select a type to begin</button>
+    <div id="status" aria-live="polite"></div>
+  </main>
+
+  <footer class="footer">
+    <span id="versionLabel"></span>
+    <button id="forgetBtn" class="link-btn" type="button" title="Remove the results Mo remembers on this computer">Forget saved results</button>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

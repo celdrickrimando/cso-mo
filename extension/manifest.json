@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Mo \u2014 MOA Checker",
+  "version": "1.1.0",
+  "description": "Checks Memorandum of Agreement Google Docs for formatting, completeness, and lead-time issues.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwJVmiAQ/jPWbvipWMESgOp1A6ng2Ciid9P02U7+KJ2ibHtcSRyFDpGq2qeBJT76SrqLgS3S8Fg5YXWDO/qxa6IW0G/Q5e29BDUJ90gIqijZ5KNBXUh+rg7qQIhdL/HyqibAyoBPgeGtjRs/sW52pPw/c0Y0I9L4NYsz5lj2mnE78UyCi4yy5yPGBwCVG38XTX78EmLaIcuf/8w4mGyoRNXzA51trz2bwa2Zz2pZT1yt8Fo4c5qb3c/8YWMfWDlIz8HYZLTgQvkztFSY0l6RCbiinGfbcoSt/TMbgMlsKRoD0h3gPzqQ2jX1MEtWcf2iF/543mIl2r/f8darYUMgBcwIDAQAB",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "identity"
+  ],
+  "host_permissions": [
+    "https://docs.google.com/*",
+    "https://drive.google.com/*",
+    "https://mo-backend-fzbn.onrender.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "minimum_chrome_version": "110"
+}
