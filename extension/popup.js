@@ -946,7 +946,6 @@ async function restoreArchiveItem(entry, btnEl) {
 // ---------- Init ----------
 
 (async function init() {
-  $("versionLabel").textContent = `Mo v${chrome.runtime.getManifest().version}`;
   syncVisibility();
   try {
     currentDoc = await detectDocument();
